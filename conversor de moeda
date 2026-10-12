@@ -1,0 +1,22 @@
+def moeda_brasileira(valor):
+    return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+real = float(input("Quanto eu tenho de dinheiro? ").replace('.', '').replace(',', '.'))
+
+print(moeda_brasileira(real))
+
+
+cotacao_dolar = float(input("Qual a cotação do dólar hoje? "))
+
+dolar_total = real / cotacao_dolar
+
+
+investimento = float(input("Quanto você pretende investir? ").replace('.', '').replace(',', '.'))
+
+dolar_do_investimento = investimento / cotacao_dolar
+
+print(
+    f"Seu investimento de {moeda_brasileira(investimento)} "
+    f"pode comprar até US$ {dolar_do_investimento:,.2f}"
+    .replace(",", "X").replace(".", ",").replace("X", "."))
